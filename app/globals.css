@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary & Brand Colors */
+  --primary: #0B1F3A; /* Deep Navy */
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #E8ECF1; /* Rhodium Light */
+  --secondary-foreground: #0B1F3A;
+
+  --accent: #0F766E; /* Refined Teal-Green */
+  --accent-foreground: #FFFFFF;
+
+  --highlight: #B08D57; /* Refined Brass Gold */
+  --highlight-foreground: #FFFFFF;
+
+  /* Surfaces & Backgrounds */
+  --background: #F7F8FA; /* Clean Off-White */
+  --foreground: #111827; /* Dark Charcoal body text */
+
+  --card: #FFFFFF;
+  --card-foreground: #111827;
+
+  --muted: #E8ECF1;
+  --muted-foreground: #505E70;
+
+  --border: #D3D9E2;
+  --input: #D3D9E2;
+  --ring: #0B1F3A;
+
+  /* Rhodium Silvers */
+  --rhodium-silver: #8A97A8;
+  --rhodium-light: #E8ECF1;
+  --rhodium-dark: #27303B;
+}
+
+.dark {
+  --primary: #809FCC;
+  --primary-foreground: #061122;
+
+  --secondary: #182029;
+  --secondary-foreground: #E8ECF1;
+
+  --accent: #2DD4BF;
+  --accent-foreground: #042F2E;
+
+  --highlight: #D4BD80;
+  --highlight-foreground: #1E170A;
+
+  --background: #061122;
+  --foreground: #F0F4F9;
+
+  --card: #0B1F3A;
+  --card-foreground: #F0F4F9;
+
+  --muted: #143160;
+  --muted-foreground: #8A97A8;
+
+  --border: #1D437D;
+  --input: #1D437D;
+  --ring: #809FCC;
+
+  --rhodium-silver: #B8C2CF;
+  --rhodium-light: #1D437D;
+  --rhodium-dark: #0B1F3A;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-teal-700 selection:text-white;
+    min-height: 100vh;
+  }
+
+  /* Accessible visible focus states */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+  }
+}
+
+/* Print optimizations */
+@media print {
+  header, footer, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
