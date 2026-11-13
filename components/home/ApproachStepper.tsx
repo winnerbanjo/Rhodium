@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, ArrowRight, ShieldCheck, FileSpreadsheet, KeyRound, Wrench, Sparkles, ArrowUpRight } from "lucide-react";
+import { Check, ArrowRight, ShieldCheck, FileSpreadsheet, KeyRound, Wrench } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
@@ -79,28 +79,25 @@ export function ApproachStepper() {
   const Icon = current.icon;
 
   return (
-    <section className="py-24 lg:py-32 bg-[#F0F2F4] dark:bg-obsidian-950 border-b border-rhodium-200/80 dark:border-white/10 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-neutral-50 dark:bg-[#0E0E0E] border-b border-neutral-200 dark:border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-obsidian-900 border border-rhodium-300/80 dark:border-white/10 text-xs font-mono uppercase tracking-widest text-coral-500 font-bold shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-coral-500" />
-            <span>/ End-to-End Delivery</span>
+        <div className="max-w-3xl mb-14 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300">
+            <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 dark:bg-white" />
+            <span>Advisory Lifecycle</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-obsidian-950 dark:text-white leading-[1.12]">
-            Our Advisory Lifecycle: <br className="hidden sm:block" />
-            <span className="neuros-gradient-text">
-              Prepare → Structure → Close → Operate
-            </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-neutral-900 dark:text-white leading-[1.12]">
+            Prepare → Structure → Close → Operate
           </h2>
 
-          <p className="text-base sm:text-lg text-rhodium-600 dark:text-rhodium-300 leading-relaxed font-sans">
-            Clients can engage Rhodium at any stage of the asset development curve. Most mandates originate during <strong>Prepare</strong> or <strong>Structure</strong> and run continuously through to binding financial close.
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+            Clients can engage Rhodium at any stage of the asset development curve. Most mandates originate during <strong className="text-neutral-900 dark:text-white font-medium">Prepare</strong> or <strong className="text-neutral-900 dark:text-white font-medium">Structure</strong> and run continuously through to binding financial close.
           </p>
         </div>
 
-        {/* Neuros Step Progress Tracker */}
+        {/* Step Progress Tracker */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
           {steps.map((step, idx) => {
             const isActive = activeStep === idx;
@@ -110,29 +107,29 @@ export function ApproachStepper() {
               <button
                 key={step.id}
                 onClick={() => setActiveStep(idx)}
-                className={`text-left p-6 rounded-3xl border transition-all duration-200 relative overflow-hidden flex flex-col justify-between ${
+                className={`text-left p-5 rounded-xl border transition-all duration-200 flex flex-col justify-between ${
                   isActive
-                    ? "bg-obsidian-950 text-white border-coral-500 shadow-[0_12px_32px_rgba(241,79,68,0.18)] scale-[1.02]"
-                    : "bg-white/80 dark:bg-obsidian-900/50 text-obsidian-950 dark:text-white border-rhodium-200/80 dark:border-white/10 hover:bg-white dark:hover:bg-obsidian-900 hover:border-rhodium-300 dark:hover:border-white/20"
+                    ? "bg-neutral-950 text-white border-neutral-900 dark:border-white shadow-sm"
+                    : "bg-white dark:bg-neutral-900/60 text-neutral-900 dark:text-white border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700"
                 }`}
               >
-                <div className="flex items-center justify-between w-full mb-3.5">
+                <div className="flex items-center justify-between w-full mb-3">
                   <span
-                    className={`text-xs font-mono font-bold px-3 py-1 rounded-full ${
+                    className={`text-[11px] font-mono font-medium px-2 py-0.5 rounded ${
                       isActive
-                        ? "bg-coral-500 text-white"
-                        : "bg-rhodium-100 dark:bg-obsidian-800 text-rhodium-700 dark:text-rhodium-300"
+                        ? "bg-neutral-800 text-neutral-300"
+                        : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
                     }`}
                   >
                     Stage {step.number}
                   </span>
-                  <StepIcon className={`w-4 h-4 ${isActive ? "text-coral-400" : "text-rhodium-400"}`} />
+                  <StepIcon className={`w-4 h-4 ${isActive ? "text-white" : "text-neutral-400"}`} />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-base sm:text-lg">{step.title}</h3>
+                  <h3 className="font-heading font-semibold text-sm sm:text-base">{step.title}</h3>
                   <p
                     className={`text-xs mt-1 font-sans line-clamp-1 ${
-                      isActive ? "text-rhodium-300" : "text-rhodium-500"
+                      isActive ? "text-neutral-400" : "text-neutral-500"
                     }`}
                   >
                     {step.tagline}
@@ -143,30 +140,30 @@ export function ApproachStepper() {
           })}
         </div>
 
-        {/* Detailed Neuros Stage Card */}
-        <div className="bg-white dark:bg-obsidian-900/70 rounded-3xl p-8 sm:p-12 border border-rhodium-200/80 dark:border-white/10 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* Detailed Stage Card */}
+        <div className="bg-white dark:bg-neutral-900/60 rounded-2xl p-6 sm:p-10 border border-neutral-200 dark:border-neutral-800 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             {/* Left: Overview and Deliverable */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-coral-500 font-bold block">
+            <div className="lg:col-span-5 space-y-5">
+              <div>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 font-medium block mb-1">
                   Stage {current.number} Scope of Work
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-heading font-extrabold text-obsidian-950 dark:text-white">
+                <h3 className="text-2xl font-heading font-bold text-neutral-900 dark:text-white">
                   {current.title} Phase
                 </h3>
               </div>
 
-              <p className="text-base text-rhodium-600 dark:text-rhodium-300 leading-relaxed font-sans">
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
                 {current.overview}
               </p>
 
               <div className="pt-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-rhodium-500 font-bold block mb-2">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 font-medium block mb-1.5">
                   Institutional Deliverable:
                 </span>
-                <div className="p-4 bg-[#F0F2F4] dark:bg-obsidian-950 rounded-2xl border border-rhodium-200/80 dark:border-white/10 text-sm font-semibold text-obsidian-950 dark:text-coral-300 flex items-center gap-3 shadow-sm">
-                  <div className="w-2.5 h-2.5 rounded-full bg-coral-500 flex-shrink-0 animate-pulse" />
+                <div className="p-3.5 bg-neutral-50 dark:bg-neutral-950 rounded-xl border border-neutral-200 dark:border-neutral-800 text-xs sm:text-sm font-medium text-neutral-900 dark:text-neutral-200 flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
                   <span>{current.output}</span>
                 </div>
               </div>
@@ -174,8 +171,9 @@ export function ApproachStepper() {
               <div className="pt-2">
                 <Button
                   href="/book"
-                  variant="neuros"
+                  variant="primary"
                   size="md"
+                  className="bg-neutral-900 text-white hover:bg-black font-medium"
                   rightIcon={<ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
                 >
                   Retain Advisory for Stage {current.number}
@@ -184,32 +182,31 @@ export function ApproachStepper() {
             </div>
 
             {/* Right: Key Advisory Activities Checklist */}
-            <div className="lg:col-span-7 bg-[#F0F2F4] dark:bg-obsidian-950 rounded-2xl p-6 sm:p-8 border border-rhodium-200/80 dark:border-white/10 shadow-sm">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-obsidian-950 dark:text-white mb-5 flex items-center gap-2 font-bold">
-                <Sparkles className="w-4 h-4 text-coral-500" />
-                <span>Core Mandate Deliverables:</span>
+            <div className="lg:col-span-7 bg-neutral-50 dark:bg-neutral-950 rounded-xl p-6 sm:p-7 border border-neutral-200 dark:border-neutral-800">
+              <h4 className="text-xs font-mono uppercase tracking-wider text-neutral-900 dark:text-white mb-4 font-medium">
+                Core Mandate Deliverables
               </h4>
 
-              <div className="space-y-4">
+              <div className="space-y-3.5">
                 {current.activities.map((act, i) => (
-                  <div key={i} className="flex items-start gap-3.5 text-sm sm:text-base text-rhodium-700 dark:text-rhodium-300 font-sans">
-                    <div className="w-6 h-6 rounded-full bg-coral-50 dark:bg-coral-950/60 text-coral-600 dark:text-coral-400 flex items-center justify-center flex-shrink-0 mt-0.5 border border-coral-200 dark:border-coral-800">
-                      <Check className="w-3.5 h-3.5" />
+                  <div key={i} className="flex items-start gap-3 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 font-sans">
+                    <div className="w-5 h-5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3 h-3" />
                     </div>
                     <span className="leading-snug">{act}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-rhodium-200/60 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-                <span className="text-rhodium-500 font-medium">
+              <div className="mt-6 pt-5 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <span className="text-neutral-500 font-sans">
                   Have an asset in {current.title.toLowerCase()} phase?
                 </span>
                 <Link
                   href="/book"
-                  className="font-bold text-coral-600 dark:text-coral-400 hover:underline inline-flex items-center gap-1.5"
+                  className="font-medium text-neutral-900 dark:text-white hover:underline inline-flex items-center gap-1.5"
                 >
-                  <span>Book confidential consultation</span>
+                  <span>Schedule partner consultation</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
