@@ -149,19 +149,19 @@ export function Header() {
 
               <Button
                 href="/book"
-                variant="accent"
+                variant="neuros"
                 size={isScrolled ? "sm" : "md"}
                 className="hidden sm:inline-flex"
-                leftIcon={<Calendar className="w-3.5 h-3.5" />}
+                rightIcon={<ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />}
               >
-                Book a Consultation
+                Get In Touch
               </Button>
 
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
                 aria-label="Open mobile navigation menu"
-                className="lg:hidden p-2 text-navy-900 dark:text-white rounded hover:bg-rhodium-100 dark:hover:bg-navy-800"
+                className="lg:hidden p-2 text-obsidian-950 dark:text-white rounded-full hover:bg-rhodium-100 dark:hover:bg-obsidian-800"
               >
                 <Menu className="w-6 h-6" />
               </button>

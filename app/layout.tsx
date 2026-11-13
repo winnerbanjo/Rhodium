@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Sora, Manrope } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/content/siteConfig";
 import { Header } from "@/components/layout/Header";
@@ -7,15 +7,15 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingMobileCta } from "@/components/layout/FloatingMobileCta";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-sora",
   display: "swap",
 });
 
@@ -118,7 +118,7 @@ export default function RootLayout({
   const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 
   return (
-    <html lang="en-GB" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
+    <html lang="en-GB" className={`${manrope.variable} ${sora.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"

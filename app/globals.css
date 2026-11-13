@@ -89,6 +89,61 @@
   }
 }
 
+@layer utilities {
+  .neuros-gradient-text {
+    background-image: linear-gradient(135deg, #F14F44 0%, #386BB7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .neuros-gradient-text-alt {
+    background-image: linear-gradient(90deg, #F14F44 0%, #FF7A00 50%, #386BB7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .neuros-gradient-bg {
+    background-image: linear-gradient(135deg, #F14F44 0%, #386BB7 100%);
+  }
+  .special-text-stroke {
+    -webkit-text-stroke: 1.5px currentColor;
+    color: transparent;
+  }
+}
+
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 30s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 30s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
 /* Print optimizations */
 @media print {
   header, footer, .no-print {

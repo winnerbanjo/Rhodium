@@ -3,7 +3,16 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "accent" | "outline" | "ghost" | "link";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "outline"
+    | "ghost"
+    | "link"
+    | "neuros"
+    | "neuros-dark"
+    | "neuros-outline";
   size?: "sm" | "md" | "lg";
   href?: string;
   isExternal?: boolean;
@@ -30,15 +39,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98]";
+      "inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] group relative overflow-hidden";
 
     const variants = {
-      primary: "bg-navy-900 text-white hover:bg-navy-800 shadow-[0_2px_12px_rgba(11,31,58,0.15)] hover:shadow-[0_4px_20px_rgba(11,31,58,0.25)] border border-navy-800 hover:-translate-y-0.5",
-      secondary: "bg-rhodium-100/80 hover:bg-rhodium-200 text-navy-900 border border-rhodium-200/80 hover:-translate-y-0.5",
-      accent: "bg-teal-700 text-white hover:bg-teal-600 shadow-[0_2px_14px_rgba(15,118,110,0.3)] hover:shadow-[0_4px_22px_rgba(15,118,110,0.45)] border border-teal-600/50 hover:-translate-y-0.5",
-      outline: "bg-white/10 dark:bg-navy-900/40 backdrop-blur-md text-navy-900 dark:text-white border border-slate-300 dark:border-white/20 hover:bg-navy-900/5 dark:hover:bg-white/10 hover:-translate-y-0.5",
-      ghost: "bg-transparent text-navy-900 dark:text-white hover:bg-slate-100 dark:hover:bg-navy-800",
-      link: "bg-transparent text-teal-700 hover:text-teal-600 hover:underline p-0 h-auto",
+      primary: "bg-obsidian-950 text-white hover:bg-coral-500 shadow-[0_4px_18px_rgba(17,17,17,0.2)] hover:shadow-[0_8px_25px_rgba(241,79,68,0.35)] border border-white/10 hover:-translate-y-0.5",
+      secondary: "bg-rhodium-100 hover:bg-rhodium-200 text-obsidian-950 border border-rhodium-200 hover:-translate-y-0.5",
+      accent: "bg-gradient-to-r from-coral-500 to-cobalt-500 text-white hover:opacity-95 shadow-[0_4px_20px_rgba(241,79,68,0.3)] hover:shadow-[0_8px_30px_rgba(56,107,183,0.45)] hover:-translate-y-0.5",
+      outline: "bg-white/10 dark:bg-obsidian-900/60 backdrop-blur-md text-obsidian-950 dark:text-white border border-slate-300 dark:border-white/15 hover:bg-coral-500 hover:border-coral-500 hover:text-white hover:-translate-y-0.5",
+      ghost: "bg-transparent text-obsidian-900 dark:text-white hover:bg-slate-100 dark:hover:bg-obsidian-800",
+      link: "bg-transparent text-coral-500 hover:text-coral-600 hover:underline p-0 h-auto",
+      neuros: "bg-gradient-to-r from-coral-500 via-[#e9453a] to-cobalt-500 text-white shadow-[0_6px_24px_rgba(241,79,68,0.35)] hover:shadow-[0_10px_35px_rgba(56,107,183,0.5)] hover:-translate-y-0.5 font-semibold",
+      "neuros-dark": "bg-obsidian-950 text-white hover:bg-coral-500 border border-white/15 hover:border-coral-500 shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 font-semibold",
+      "neuros-outline": "bg-transparent text-obsidian-950 dark:text-white border-2 border-obsidian-950 dark:border-white/20 hover:border-coral-500 hover:bg-coral-500 hover:text-white hover:-translate-y-0.5 font-semibold",
     };
 
     const sizes = {
