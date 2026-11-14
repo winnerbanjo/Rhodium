@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { whyRhodiumDifferentiators } from "@/content/values";
 import { Eye, Zap, Coins, Compass, Users, GraduationCap, Rocket, CheckCircle2 } from "lucide-react";
 
@@ -102,13 +103,27 @@ export function WhyRhodium() {
             return (
               <div
                 key={diff.id}
-                className={`rounded-xl p-6 border transition-all duration-200 flex flex-col justify-between ${
+                className={`relative rounded-xl p-6 sm:p-7 border transition-all duration-200 flex flex-col justify-between overflow-hidden ${
                   isFeatured
-                    ? "md:col-span-2 lg:col-span-2 bg-neutral-900 dark:bg-black text-white border-neutral-800 shadow-lg"
+                    ? "md:col-span-2 lg:col-span-2 bg-neutral-950 text-white border-neutral-800 shadow-xl"
                     : "bg-neutral-50 dark:bg-neutral-900/40 text-neutral-900 dark:text-white border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700"
                 }`}
               >
-                <div>
+                {/* Background Boardroom Photo for Featured Card */}
+                {isFeatured && (
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    <Image
+                      src="/images/about/london-boardroom.jpg"
+                      alt="London Advisory Boardroom"
+                      fill
+                      className="object-cover opacity-15 filter grayscale contrast-125"
+                      sizes="(max-width: 1024px) 100vw, 66vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-transparent" />
+                  </div>
+                )}
+
+                <div className="relative z-10">
                   <div className="flex items-center justify-between mb-5">
                     <div
                       className={`w-10 h-10 rounded-lg flex items-center justify-center ${
@@ -153,7 +168,7 @@ export function WhyRhodium() {
                 </div>
 
                 <div
-                  className={`mt-6 pt-4 border-t flex items-center gap-2 text-xs font-medium ${
+                  className={`relative z-10 mt-6 pt-4 border-t flex items-center gap-2 text-xs font-medium ${
                     isFeatured
                       ? "border-neutral-800 text-emerald-400"
                       : "border-neutral-200 dark:border-neutral-800 text-neutral-500"

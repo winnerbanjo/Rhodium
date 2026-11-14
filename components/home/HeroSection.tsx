@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import {
   ArrowRight,
@@ -13,15 +14,32 @@ import {
   CheckCircle2,
   X,
   Building2,
+  Layers,
+  MapPin,
 } from "lucide-react";
 import { trackRecordMetrics } from "@/content/projects";
 
 export function HeroSection() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [activeVisual, setActiveVisual] = useState<"infrastructure" | "boardroom">("infrastructure");
 
   return (
     <>
       <section className="relative overflow-hidden bg-[#0A0A0A] text-white pt-16 pb-20 lg:pt-24 lg:pb-28 border-b border-neutral-800">
+        {/* Cinematic atmospheric backdrop */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <Image
+            src="/images/hero/hero-infrastructure.jpg"
+            alt="Strategic Infrastructure"
+            fill
+            priority
+            className="object-cover opacity-[0.08] filter grayscale contrast-125"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/95 to-transparent" />
+        </div>
+
         {/* Subtle architectural hairline grid overlay */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -92,94 +110,143 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Right Column: Clean Architectural Telemetry Card */}
+            {/* Right Column: High-End Architectural Photography & Floating Telemetry HUD */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl bg-neutral-900/90 p-6 sm:p-8 border border-neutral-800 shadow-xl backdrop-blur-xl">
-                {/* Terminal Header */}
-                <div className="flex items-center justify-between pb-5 border-b border-neutral-800">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <div className="relative rounded-2xl bg-neutral-900/95 border border-neutral-800 overflow-hidden shadow-2xl">
+                {/* Visual Header with Tab Controls */}
+                <div className="flex items-center justify-between p-3.5 sm:p-4 bg-neutral-950/80 border-b border-neutral-800/80">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span className="font-mono text-xs uppercase tracking-wider text-neutral-300 font-medium">
-                      Transaction Telemetry
+                      Mandate Telemetry
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
-                    ADVISORY PIPELINE
-                  </span>
-                </div>
 
-                {/* Big Metric Display */}
-                <div className="py-6 border-b border-neutral-800">
-                  <span className="text-xs uppercase font-mono tracking-wider text-neutral-400 block mb-1">
-                    Structured Facility Volume
-                  </span>
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-4xl sm:text-5xl font-heading font-bold tracking-tight text-white">
-                      £2.5B+
-                    </span>
-                    <span className="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded">
-                      Completed
-                    </span>
-                  </div>
-                  <p className="text-xs text-neutral-400 mt-2 font-sans leading-relaxed">
-                    Cross-border project finance, syndications, and bankable concession facilities across Africa and the UK.
-                  </p>
-                </div>
-
-                {/* Sub-Metrics Grid */}
-                <div className="grid grid-cols-2 gap-3 py-5 border-b border-neutral-800">
-                  <div className="p-3.5 rounded-xl bg-neutral-950/60 border border-neutral-800/80">
-                    <span className="text-2xl font-heading font-bold text-white block">
-                      20+
-                    </span>
-                    <span className="text-[11px] text-neutral-400 font-medium font-sans">
-                      Mandates Closed
-                    </span>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-neutral-950/60 border border-neutral-800/80">
-                    <span className="text-2xl font-heading font-bold text-white block">
-                      10,000+
-                    </span>
-                    <span className="text-[11px] text-neutral-400 font-medium font-sans">
-                      Farmers & SME Reach
-                    </span>
+                  {/* Visual Switcher */}
+                  <div className="flex items-center bg-neutral-900 p-0.5 rounded-lg border border-neutral-800 text-[11px] font-sans">
+                    <button
+                      type="button"
+                      onClick={() => setActiveVisual("infrastructure")}
+                      className={`px-2.5 py-1 rounded-md transition-all ${
+                        activeVisual === "infrastructure"
+                          ? "bg-neutral-800 text-white font-medium shadow-sm"
+                          : "text-neutral-400 hover:text-white"
+                      }`}
+                    >
+                      Infrastructure
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveVisual("boardroom")}
+                      className={`px-2.5 py-1 rounded-md transition-all ${
+                        activeVisual === "boardroom"
+                          ? "bg-neutral-800 text-white font-medium shadow-sm"
+                          : "text-neutral-400 hover:text-white"
+                      }`}
+                    >
+                      London Desk
+                    </button>
                   </div>
                 </div>
 
-                {/* Transaction Standards Checklist */}
-                <div className="pt-5 space-y-2.5 text-xs font-sans">
-                  <div className="flex items-center justify-between text-neutral-300">
-                    <span className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-neutral-400" />
-                      FAST-Standard Financial Models
-                    </span>
-                    <span className="font-mono text-[10px] text-neutral-400">AUDITED</span>
+                {/* Main Hero Photographic Showcase */}
+                <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-neutral-950">
+                  {activeVisual === "infrastructure" ? (
+                    <Image
+                      src="/images/hero/hero-infrastructure.jpg"
+                      alt="Monumental bridge and container port infrastructure"
+                      fill
+                      priority
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 500px"
+                    />
+                  ) : (
+                    <Image
+                      src="/images/hero/advisory-boardroom.jpg"
+                      alt="Rhodium Impact London Advisory Boardroom"
+                      fill
+                      priority
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 500px"
+                    />
+                  )}
+
+                  {/* Gradient vignettes to blend into obsidian frame */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/30" />
+
+                  {/* Floating Location Pill */}
+                  <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-neutral-950/80 backdrop-blur-md border border-neutral-800 text-[11px] font-mono text-neutral-200">
+                    <MapPin className="w-3 h-3 text-emerald-400" />
+                    <span>{activeVisual === "infrastructure" ? "Sub-Saharan Corridor" : "London Advisory Desk"}</span>
                   </div>
-                  <div className="flex items-center justify-between text-neutral-300">
-                    <span className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-neutral-400" />
-                      Sovereign Risk Allocation
-                    </span>
-                    <span className="font-mono text-[10px] text-neutral-400">STRUCTURED</span>
-                  </div>
-                  <div className="flex items-center justify-between text-neutral-300">
-                    <span className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-neutral-400" />
-                      Local Currency Debt Tranches
-                    </span>
-                    <span className="font-mono text-[10px] text-neutral-400">MATCHED</span>
+
+                  {/* Floating Metric Badge */}
+                  <div className="absolute bottom-3 right-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-950/90 backdrop-blur-md border border-neutral-700 text-xs font-mono text-white shadow-lg">
+                    <span className="text-emerald-400 font-bold">£2.5B+</span>
+                    <span className="text-neutral-400 text-[10px]">FACILITIES CLOSED</span>
                   </div>
                 </div>
 
-                {/* Card Footer Link */}
-                <div className="mt-6 pt-4 border-t border-neutral-800">
-                  <Link
-                    href="/projects"
-                    className="flex items-center justify-between text-xs font-medium text-neutral-300 hover:text-white transition-colors group"
-                  >
-                    <span>View Deal Track Record</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                {/* Telemetry Stats Strip */}
+                <div className="p-5 sm:p-6 space-y-4 bg-neutral-900/90">
+                  <div className="grid grid-cols-3 gap-2.5 text-center">
+                    <div className="p-2.5 rounded-lg bg-neutral-950/60 border border-neutral-800">
+                      <span className="text-xl sm:text-2xl font-heading font-bold text-white block">
+                        £2.5B+
+                      </span>
+                      <span className="text-[10px] text-neutral-400 font-mono block">
+                        Executed
+                      </span>
+                    </div>
+
+                    <div className="p-2.5 rounded-lg bg-neutral-950/60 border border-neutral-800">
+                      <span className="text-xl sm:text-2xl font-heading font-bold text-white block">
+                        20+
+                      </span>
+                      <span className="text-[10px] text-neutral-400 font-mono block">
+                        Mandates
+                      </span>
+                    </div>
+
+                    <div className="p-2.5 rounded-lg bg-neutral-950/60 border border-neutral-800">
+                      <span className="text-xl sm:text-2xl font-heading font-bold text-white block">
+                        10,000+
+                      </span>
+                      <span className="text-[10px] text-neutral-400 font-mono block">
+                        SMEs & Farmers
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Transaction Standards Checklist */}
+                  <div className="pt-2 space-y-2 text-xs font-sans">
+                    <div className="flex items-center justify-between text-neutral-300">
+                      <span className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                        FAST-Standard Financial Models
+                      </span>
+                      <span className="font-mono text-[10px] text-neutral-400">AUDITED</span>
+                    </div>
+                    <div className="flex items-center justify-between text-neutral-300">
+                      <span className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                        Sovereign Risk Allocation & PRGs
+                      </span>
+                      <span className="font-mono text-[10px] text-neutral-400">STRUCTURED</span>
+                    </div>
+                  </div>
+
+                  {/* Card Footer Link */}
+                  <div className="pt-3 border-t border-neutral-800 flex items-center justify-between text-xs">
+                    <Link
+                      href="/projects"
+                      className="font-medium text-neutral-300 hover:text-white transition-colors inline-flex items-center gap-1.5 group"
+                    >
+                      <span>Explore Case Studies</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                    <span className="text-[10px] font-mono text-neutral-500">CAMA 2020 RC 8102994</span>
+                  </div>
                 </div>
               </div>
             </div>

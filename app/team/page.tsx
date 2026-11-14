@@ -49,12 +49,12 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {coreTeam.map((member) => (
               <Card
                 key={member.id}
                 hoverEffect
-                className={`p-8 border-rhodium-200 dark:border-navy-800 flex flex-col justify-between ${
+                className={`p-7 border-rhodium-200 dark:border-navy-800 flex flex-col justify-between ${
                   member.isPrimary ? "ring-2 ring-teal-700/50" : ""
                 }`}
               >
@@ -63,13 +63,13 @@ export default function TeamPage() {
                     <div className="flex items-center gap-4">
                       {/* Photo / Avatar */}
                       {member.image ? (
-                        <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-teal-700/40 dark:border-teal-500/40 shadow-sm flex-shrink-0">
+                        <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-teal-700/40 dark:border-teal-500/40 shadow-sm flex-shrink-0">
                           <Image
                             src={member.image}
                             alt={member.name}
                             fill
                             className="object-cover object-top"
-                            sizes="64px"
+                            sizes="80px"
                           />
                         </div>
                       ) : (

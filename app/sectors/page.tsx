@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { sectorsData } from "@/content/sectors";
 import { Button } from "@/components/ui/Button";
@@ -91,8 +92,22 @@ export default function SectorsPage() {
                 </Button>
               </div>
 
+              {/* Photographic Banner */}
+              {sector.image && (
+                <div className="relative h-60 sm:h-72 w-full rounded-xl overflow-hidden my-6 bg-neutral-950 shadow-md">
+                  <Image
+                    src={sector.image}
+                    alt={sector.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                </div>
+              )}
+
               {/* Sector Overview */}
-              <div className="pt-6 pb-8">
+              <div className="pt-2 pb-8">
                 <p className="text-sm sm:text-base text-rhodium-700 dark:text-rhodium-200 leading-relaxed max-w-4xl">
                   {sector.overview}
                 </p>

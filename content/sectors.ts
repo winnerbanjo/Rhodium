@@ -11,6 +11,7 @@ export interface SectorItem {
   };
   keyFocusAreas: string[];
   icon: string;
+  image?: string;
 }
 
 export const sectorsData: SectorItem[] = [
@@ -40,6 +41,7 @@ export const sectorsData: SectorItem[] = [
       "Sub-sovereign tax and customs stabilization covenants",
     ],
     icon: "Factory",
+    image: "/images/sectors/free-trade-zones.jpg",
   },
   {
     id: "power-and-utilities",
@@ -67,6 +69,7 @@ export const sectorsData: SectorItem[] = [
       "Interconnected mini-grid concession frameworks",
     ],
     icon: "Zap",
+    image: "/images/sectors/power-utilities.jpg",
   },
   {
     id: "healthcare",
@@ -94,6 +97,7 @@ export const sectorsData: SectorItem[] = [
       "Local active pharmaceutical ingredient (API) manufacturing",
     ],
     icon: "HeartPulse",
+    image: "/images/sectors/social-infrastructure.jpg",
   },
   {
     id: "social-infrastructure",
@@ -121,6 +125,7 @@ export const sectorsData: SectorItem[] = [
       "Municipal solid waste management and waste-to-energy assets",
     ],
     icon: "Building",
+    image: "/images/sectors/transport-and-logistics.jpg",
   },
   {
     id: "education-infrastructure",
@@ -148,6 +153,7 @@ export const sectorsData: SectorItem[] = [
       "Digital learning infrastructure and campus broadband networks",
     ],
     icon: "GraduationCap",
+    image: "/images/sectors/agriculture-processing.jpg",
   },
   {
     id: "energy-transition",
@@ -175,5 +181,6 @@ export const sectorsData: SectorItem[] = [
       "Methane capture and flared gas commercialisation",
     ],
     icon: "SunMedium",
+    image: "/images/sectors/water-and-environmental.jpg",
   },
 ];

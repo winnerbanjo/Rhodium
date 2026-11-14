@@ -25,7 +25,7 @@ export const coreTeam: TeamMember[] = [
     bio: "Country Director (Nigeria) and Lead Transaction Adviser for Rhodium Impact. Femi is an infrastructure advisory and environmental planning specialist with over 19 years of multidisciplinary experience across banking, finance, investment advisory, business modelling, corporate risk asset management ($7M+), and liability generation ($10.5M+). He has played a pivotal role in agriculture and SME funding programmes across Nigeria, structuring initiatives that enabled over 10,000 farmers, agribusiness entrepreneurs, and SMEs to access over $5M in capital and equipment procurement. Femi holds a Ph.D. in Environmental Resource Management from Nasarawa State University (2021), an M.Sc. in Environmental Resource Planning from the University of Jos (2007), and a B.Sc. (Second Class Upper) in Geography (2003).",
     linkedin: "https://www.linkedin.com/company/rhodium-impact",
     email: "femi.oladeinde@rhodiuminfra.co.uk",
-    imagePlaceholder: "/images/team/femi-oladeinde.jpg",
+    image: "/images/team/femi-oladeinde.jpg",
   },
   {
     id: "olusegun-olayinka",

@@ -2,10 +2,12 @@ import React from "react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { NeurosTicker } from "@/components/home/NeurosTicker";
 import { TheGapSection } from "@/components/home/TheGapSection";
+import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { EcosystemDiagram } from "@/components/home/EcosystemDiagram";
 import { ApproachStepper } from "@/components/home/ApproachStepper";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { SectorsSection } from "@/components/home/SectorsSection";
+import { LeadershipSection } from "@/components/home/LeadershipSection";
 import { WhyRhodium } from "@/components/home/WhyRhodium";
 import { PricingPlans } from "@/components/home/PricingPlans";
 import { ValuesStrip } from "@/components/home/ValuesStrip";
@@ -15,40 +17,46 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero with Live Transaction Telemetry & Neuros Radials */}
+      {/* 1. Hero with Live Transaction Telemetry & Real Infrastructure Photography */}
       <HeroSection />
 
-      {/* 2. Signature Neuros Double Tilted Running Marquee Tapes */}
+      {/* 2. Signature Running Marquee Tapes */}
       <NeurosTicker />
 
       {/* 3. The Gap / Bankability Imperative Bento */}
       <TheGapSection />
 
-      {/* 4. Ecosystem: Who We Sit Between */}
+      {/* 4. Landmark Transactions & Executed Mandates (Photographic Showcase) */}
+      <FeaturedProjects />
+
+      {/* 5. Ecosystem: Who We Sit Between */}
       <EcosystemDiagram />
 
-      {/* 5. Our Approach: Prepare -> Structure -> Close -> Operate */}
+      {/* 6. Our Approach: Prepare -> Structure -> Close -> Operate */}
       <ApproachStepper />
 
-      {/* 6. Services Overview: 8 Neuros Bento Cards with Circular Arrows */}
+      {/* 7. Services Overview: 8 Bento Cards */}
       <ServicesGrid />
 
-      {/* 7. Sectors We Serve */}
+      {/* 8. Sectors We Serve (with Real Sector Architectural Photography) */}
       <SectorsSection />
 
-      {/* 8. Why Rhodium: 4 Neuros Gradient Feature Boxes + 7 Differentiators */}
+      {/* 9. Advisory Leadership (Senior Partners with Executive Portraits) */}
+      <LeadershipSection />
+
+      {/* 10. Why Rhodium (with London Boardroom Backdrop) */}
       <WhyRhodium />
 
-      {/* 9. Engagement Models: Neuros Signature Wide Retainer Cards */}
+      {/* 11. Engagement Models */}
       <PricingPlans />
 
-      {/* 10. Neuros Testimonial & Animated Counter Stats Strip */}
+      {/* 12. Testimonial & Animated Counter Stats Strip */}
       <ValuesStrip />
 
-      {/* 11. Insights & Research Preview */}
+      {/* 13. Insights & Research Preview */}
       <InsightsPreview />
 
-      {/* 12. Neuros Obsidian CTA & Executive Intelligence Briefing */}
+      {/* 14. Obsidian CTA & Executive Intelligence Briefing */}
       <CtaBanner />
     </>
   );

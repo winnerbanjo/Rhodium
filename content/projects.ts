@@ -13,6 +13,7 @@ export interface ProjectCaseStudy {
   ourRole: string;
   approach: string;
   outcome: string;
+  image?: string;
   metrics: Array<{ label: string; value: string }>;
 }
 
@@ -76,6 +77,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Designed a centralized capacity-building and loan-readiness curriculum aligned with CBN underwriting standards. Coordinated with participating financial institutions to package viable loan dossiers with verifiable equipment procurement workflows.",
     outcome:
       "Successfully secured and delivered training consultancy for over 1,500 indigenes, attracting over ₦5B in catalytic capital to Osun State to accelerate local enterprise and agricultural processing.",
+    image: "/images/projects/sub-national-logistics.jpg",
     metrics: [
       { label: "Capital Mobilised", value: "₦5.0B+" },
       { label: "Beneficiaries Trained", value: "1,500+ Entrepreneurs" },
@@ -103,6 +105,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Established structured asset-backed lease and vendor-financing mechanisms that linked machinery suppliers with vetted farmer cooperatives, integrating technical maintenance covenants and structured repayment cycles.",
     outcome:
       "Trained and mobilized over 10,000 farmers and agricultural entrepreneurs nationwide, enabling access to over $5M in asset-backed equipment and commercial funding.",
+    image: "/images/projects/cbn-agsmeis-agriculture.jpg",
     metrics: [
       { label: "Procurement Funding", value: "$5.0M+ Delivered" },
       { label: "Value Chain Reach", value: "10,000+ Farmers" },
@@ -130,6 +133,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Deployed project finance, PPP, and asset-backed lending architectures alongside green and social bond issuances, while managing a £1bn institutional infrastructure fund finance portfolio.",
     outcome:
       "Closed 20+ major financing mandates, structuring and executing in excess of £2.5 billion in total financing facilities across Africa and Europe.",
+    image: "/images/projects/energy-transition.jpg",
     metrics: [
       { label: "Total Facilities Executed", value: "£2.5B+" },
       { label: "Fund Portfolio Managed", value: "£1.0B" },

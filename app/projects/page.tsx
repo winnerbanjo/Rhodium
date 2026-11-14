@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { projectCaseStudies, trackRecordMetrics } from "@/content/projects";
 import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
@@ -126,9 +127,22 @@ export default function ProjectsPage() {
               <Card
                 key={project.slug}
                 hoverEffect
-                className="flex flex-col justify-between border-rhodium-200 dark:border-navy-800 p-6 sm:p-7 bg-white dark:bg-navy-900 shadow-card"
+                className="flex flex-col justify-between border-rhodium-200 dark:border-navy-800 p-6 sm:p-7 bg-white dark:bg-navy-900 shadow-card overflow-hidden"
               >
                 <div>
+                  {project.image && (
+                    <div className="relative h-44 -mx-6 sm:-mx-7 -mt-6 sm:-mt-7 mb-4 overflow-hidden rounded-t-xl bg-neutral-950">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    </div>
+                  )}
+
                   <div className="flex items-center justify-between gap-2 mb-4">
                     <Badge variant="teal">{project.sectorName}</Badge>
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-brass-600 dark:text-brass-400">

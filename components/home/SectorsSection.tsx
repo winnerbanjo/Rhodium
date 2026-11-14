@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { sectorsData } from "@/content/sectors";
 import { Factory, Zap, HeartPulse, Building, GraduationCap, SunMedium, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -51,18 +52,37 @@ export function SectorsSection() {
             return (
               <div
                 key={sector.id}
-                className="group bg-white dark:bg-neutral-900/60 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-900 dark:hover:border-white transition-all duration-200 flex flex-col justify-between"
+                className="group bg-white dark:bg-neutral-900/80 rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-900 dark:hover:border-neutral-600 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-md"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white border border-neutral-200 dark:border-neutral-700 flex items-center justify-center transition-colors">
-                      {Icon}
+                  {/* Photo Header */}
+                  {sector.image ? (
+                    <div className="relative h-44 -mx-6 -mt-6 mb-5 overflow-hidden bg-neutral-950">
+                      <Image
+                        src={sector.image}
+                        alt={sector.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#171717] via-transparent to-black/30" />
+                      <div className="absolute top-3 left-3 w-9 h-9 rounded-lg bg-neutral-950/85 backdrop-blur-md text-white border border-neutral-700/60 flex items-center justify-center shadow-lg">
+                        {Icon}
+                      </div>
+                      <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-neutral-950/70 backdrop-blur-md border border-neutral-700 text-neutral-300 group-hover:text-white flex items-center justify-center transition-colors">
+                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
                     </div>
-                    
-                    <div className="w-7 h-7 rounded-full bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white flex items-center justify-center transition-colors">
-                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  ) : (
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white border border-neutral-200 dark:border-neutral-700 flex items-center justify-center transition-colors">
+                        {Icon}
+                      </div>
+                      <div className="w-7 h-7 rounded-full bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white flex items-center justify-center transition-colors">
+                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <h3 className="font-heading font-semibold text-lg text-neutral-900 dark:text-white leading-snug">
                     {sector.name}
